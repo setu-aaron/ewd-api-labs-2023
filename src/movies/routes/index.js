@@ -9,6 +9,8 @@ const createMoviesRouter = (dependencies) => {
 
     const moviesController = MoviesController(dependencies);
 
+    console.log("CMR - Movies Controller", moviesController)
+
     router.route('/:id')
         .get(moviesController.getMovie);
 
