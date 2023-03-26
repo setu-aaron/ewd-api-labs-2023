@@ -13,3 +13,12 @@ You can also run this application locally:
 npm install
 npm start
 ```
+### Gotchas
+There is a .env file that is not checked in it should looks something like this:
+```
+NODE_ENV=development
+PORT=8080
+HOST=localhost
+DATABASE_DIALECT=in-memory
+TMDB_KEY=YOUR_TBDM_KEY
+```
