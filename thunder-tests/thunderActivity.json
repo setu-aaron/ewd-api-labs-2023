@@ -111,7 +111,7 @@
     "_id": "02d67d08-fc64-4fcf-84e3-11b33355fc8c",
     "colId": "history",
     "containerId": "",
-    "name": "saveAccount Copy",
+    "name": "saveSecondAccount",
     "url": "localhost:8080/api/accounts",
     "method": "POST",
     "sortNum": 0,
@@ -122,6 +122,25 @@
     "body": {
       "type": "json",
       "raw": "  {\n    \"id\": 2,\n    \"firstName\": \"Aaron\",\n    \"lastName\": \"O'Brien\",\n    \"email\": \"aaron@flyingspheres.com\",\n    \"password\": \"Secret\",\n    \"favorites\": []\n  }",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "48048088-9a0b-492b-8627-78e303f8bccb",
+    "colId": "history",
+    "containerId": "",
+    "name": "updateSecondAccount",
+    "url": "localhost:8080/api/accounts/2",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-03-26T16:42:33.580Z",
+    "modified": "2023-03-26T18:15:48.856Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "  {\n    \"id\": 2,\n    \"firstName\": \"Aaron\",\n    \"lastName\": \"O'Brien\",\n    \"email\": \"aaron@flyingspheres.com\",\n    \"password\": \"superSecret\",\n    \"favorites\": []\n  }",
       "form": []
     },
     "tests": []

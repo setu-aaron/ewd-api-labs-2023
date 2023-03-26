@@ -13,12 +13,15 @@ export default class extends AccountRepository {
         const rowId = this.index++;
         row.id = rowId;
         this.data[rowId] = row;
-        console.log("MemoryRepository.persist() called", this.data)
+        console.log("MemoryRepository.persist() called", this.data);
         return rowId;
     }
 
     merge(accountEntity) {
+        console.log("Working with account: ", accountEntity);
         let row = this.data[accountEntity.id];
+        console.log("Saved version is", row);
+
         Object.assign(row, accountEntity);
         return Promise.resolve();
     }

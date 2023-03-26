@@ -9,6 +9,16 @@ export default {
     getAccount: (accountId, {accountsRepository}) => {
         return accountsRepository.get(accountId);
     },
+    updateAccount: async (id, firstName, lastName, email, password, {accountsRepository}) => {
+        console.log("services.updateAccount() called");
+        const account = new Account(id, firstName, lastName, email, password);
+
+        accountsRepository.merge(account);
+
+        const updatedAccount = accountsRepository.get(id);
+        
+        return updatedAccount;
+    },
     find: ({accountsRepository}) => {
         console.log("services.find() called on object: ", accountsRepository)
         let accounts = accountsRepository.find();

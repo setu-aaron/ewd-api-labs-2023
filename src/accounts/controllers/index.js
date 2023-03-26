@@ -19,6 +19,17 @@ export default (dependencies) => {
         response.status(200).json(account);
     };
 
+    const updateAccount = async(request, response, next) => {
+        console.log("Account Service", accountService)
+        //Input
+        const {id, firstName, lastName, email, password} = request.body;
+
+        // Treatment
+        const account = await accountService.updateAccount(id, firstName, lastName, email, password, dependencies);
+        // Output
+        response.status(201).json(account);
+    };
+
     const listAccounts = async(request, response, next) => {
         console.log("accounts/controlers.listAccounts called")
         console.log("\tdependencies: ", dependencies)
@@ -31,6 +42,7 @@ export default (dependencies) => {
     return {
         createAccount,
         getAccount,
-        listAccounts
+        listAccounts,
+        updateAccount
     };
 }
