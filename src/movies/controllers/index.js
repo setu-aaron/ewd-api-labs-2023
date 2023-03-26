@@ -25,8 +25,21 @@ export default(dependencies) => {
         response.status(200).json(movies);
     };
 
+    const upcoming = async (request, response, next) => {
+        console.log("Calling movies/controllers find")
+        //Input 
+        const query = request.query;
+
+        //Treatment
+        const movies = await movieService.upcoming(query, dependencies);
+
+        //Outptut
+        response.status(200).json(movies);
+    };
+
     return {
         getMovie,
-        find
+        find,
+        upcoming
     };
 };

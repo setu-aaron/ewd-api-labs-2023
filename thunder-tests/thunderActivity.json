@@ -33,6 +33,20 @@
     "tests": []
   },
   {
+    "_id": "c20486ae-12cf-4553-ba33-1d71770cc411",
+    "colId": "history",
+    "containerId": "",
+    "name": "getUpcomingMovies",
+    "url": "localhost:8080/api/movies/upcoming",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-03-26T15:50:57.165Z",
+    "modified": "2023-03-26T18:40:18.577Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
     "_id": "81c449b2-6e18-497c-9484-9ed6619e6fca",
     "colId": "history",
     "containerId": "",
