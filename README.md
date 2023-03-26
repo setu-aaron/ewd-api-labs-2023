@@ -6,7 +6,10 @@ Web API for Enterprise web development
 
 ## Starting the server
 This project is configured to run with githup code spaces. To do that these are the steps to get that working:
-npm run dev
+If this is is a clean install of VSCode you will want to install the "GitHub Codespaces" plugin.
+You can either open the command pallette (Shift - Command - P) search for Create codespace
+
+Once you have created it and you stopped the container you can click on the bottm left button that looks a little like this: >< and select connect to codespace
 
 You can also run this application locally:
 ```
