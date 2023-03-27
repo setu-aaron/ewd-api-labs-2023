@@ -1,5 +1,5 @@
 import express from 'express';
-import {genres} from './genreData';
+import {genres} from './dep_genreData';
 
 const router = express.Router();
 
