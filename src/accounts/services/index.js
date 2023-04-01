@@ -20,9 +20,9 @@ export default {
         return updatedAccount;
     },
     find: ({accountsRepository}) => {
-        console.log("services.find() called on object: ", accountsRepository)
+        console.log("services.find() called on object: ", accountsRepository);
         let accounts = accountsRepository.find();
-        console.log("accounts: ", accounts)
+        console.log("accounts: ", accounts);
         if (accounts === undefined) {
             return {};
         } else {
@@ -44,11 +44,11 @@ export default {
     },
     getFavourites: async (accountId, { accountsRepository }) => {
         const account = await accountsRepository.get(accountId);
-        return account.favourites;
+        return account.favorites;
     },
     addFavourite: async (accountId, movieId, { accountsRepository }) => {
         const account = await accountsRepository.get(accountId);
-        account.favourites.push(movieId);
+        account.favorites.push(movieId);
         return await accountsRepository.merge(account);
     }
   
