@@ -10,7 +10,7 @@ export default class extends Repository {
             lastName: String,
             email: {type: String, unique: true, index: true},
             password: String,
-            favourites: [String]
+            favourites: [Number]
         });
         this.model = mongoose.model("Account", accountSchema);
     }
