@@ -77,4 +77,4 @@ export default (dependencies) => {
         addFavourite,
         getFavourites
     };
-}
+};

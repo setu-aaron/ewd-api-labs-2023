@@ -61,6 +61,20 @@
     "tests": []
   },
   {
+    "_id": "5559aec7-96c6-49cf-b7e8-9e9a019ee404",
+    "colId": "history",
+    "containerId": "",
+    "name": "loadGenres",
+    "url": "localhost:8080/api/genres/load",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-03-26T15:59:50.050Z",
+    "modified": "2023-04-01T17:53:30.104Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
     "_id": "e88b6ee9-b928-4a33-8399-09b6bea53eca",
     "colId": "history",
     "containerId": "",
