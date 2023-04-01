@@ -10,6 +10,7 @@ const createRouter = (dependencies) => {
     // load controller with dependencies
     const accountsController = AccountsController(dependencies);
     const validationController = ValidationController(dependencies);
+    
 
     //define routes
     router.route('/')
@@ -28,7 +29,7 @@ const createRouter = (dependencies) => {
         .post(accountsController.authenticateAccount);
 
     router.route('/:id/favourites')
-        .post(accountsController.addFavourite);
+        .post(validationController.validateUniqueMovieId, accountsController.addFavourite);
 
     router.route('/:id/favourites')
         .get(accountsController.getFavourites);

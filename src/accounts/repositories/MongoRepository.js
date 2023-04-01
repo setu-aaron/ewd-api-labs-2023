@@ -37,8 +37,10 @@ export default class extends Repository {
     }
 
     async get(userId) {
+        console.log("MongoRepo.get: Retrieving user id: ", userId);
         const result = await this.model.findById(userId);
         const {id, firstName, lastName, email, password, favorites} = result;
+        console.log("Found user named: ", firstName);
         return new Account(id, firstName, lastName, email, password, favorites);
     }
 
