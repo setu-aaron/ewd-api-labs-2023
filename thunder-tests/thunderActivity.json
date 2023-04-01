@@ -158,5 +158,24 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "dc5cff1a-0158-4386-9e55-1f9da8a46590",
+    "colId": "history",
+    "containerId": "",
+    "name": "saveBadAccount",
+    "url": "localhost:8080/api/accounts",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-03-26T16:42:33.580Z",
+    "modified": "2023-04-01T15:31:48.018Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "  {\n    \"firstName\": \"\",\n    \"lastName\": \"O'Brien\",\n    \"email\": \"aaronflyingspheres.com\",\n    \"password\": \"Se\",\n    \"favorites\": []\n  }",
+      "form": []
+    },
+    "tests": []
   }
 ]
