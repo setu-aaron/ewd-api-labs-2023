@@ -21,15 +21,15 @@ export default {
             });
             connection.once('open', async ()=>{
                 console.log('*** connected to MongoDB')
-                if (process.env.NODE_ENV === "development") {
-                    const collections = await connection.db.listCollections().toArray();
+                // if (process.env.NODE_ENV === "development") {
+                //     const collections = await connection.db.listCollections().toArray();
 
-                    collections
-                        .map(collections => collections.name)
-                        .forEach(async (collectionName) => {
-                            connection.db.dropCollection(collectionName);
-                        });
-                }
+                //     collections
+                //         .map(collections => collections.name)
+                //         .forEach(async (collectionName) => {
+                //             connection.db.dropCollection(collectionName);
+                //         });
+                // }
             });
             
         }

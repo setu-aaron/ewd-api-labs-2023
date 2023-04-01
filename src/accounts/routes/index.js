@@ -1,5 +1,6 @@
 import express from 'express';
 import AccountsController from '../controllers';
+import ValidationController from '../controllers/ValidationController';
 
 const createRouter = (dependencies) => {
     const router = express.Router();
@@ -8,10 +9,11 @@ const createRouter = (dependencies) => {
     console.log("dependencies: ", dependencies)
     // load controller with dependencies
     const accountsController = AccountsController(dependencies);
+    const validationController = ValidationController(dependencies);
 
     //define routes
     router.route('/')
-        .post(accountsController.createAccount);
+        .post(validationController.validateAccount, accountsController.createAccount);
 
     router.route('/')
         .get(accountsController.listAccounts);
