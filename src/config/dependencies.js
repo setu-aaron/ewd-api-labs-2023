@@ -1,9 +1,11 @@
 import AccountsRepositoryInMemory from '../accounts/repositories/MemoryRepository';
 import MongoRepository from '../accounts/repositories/MongoRepository';
 import AccountSchema from '../accounts/validators';
+import Authenticator from '../accounts/security/simple';
 
 const buildDependencies = () => {
   const dependencies = {
+    authenticator: new Authenticator()
   };
 
   dependencies.accountSchema = AccountSchema;

@@ -1,4 +1,4 @@
-export default (dependencies) = {
+export default (dependencies) => {
     const { accountSchema } = dependencies;
 
     const validateAccount = async(request, response, next) => {
@@ -8,7 +8,7 @@ export default (dependencies) = {
             request.body = validated;
             next();
         } catch(error){
-            next (new Error (`Invalid Data ${err.message}`));
+            next (new Error (`Invalid Data ${error.message}`));
         }
     };
 

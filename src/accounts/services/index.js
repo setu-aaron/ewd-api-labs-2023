@@ -31,5 +31,16 @@ export default {
     },
     findByEmail: (email, {accountsRepository}) => {
         return accountsRepository.getByEmail(email);
+    },
+
+    authenticate: async (email, password, {accountsRepository, authenticator}) => {
+        const account = await accountsRepository.getByEmail(email);
+        const result = await authenticator.compare(password, account.password);
+        if (!result) {
+            throw new Error('Bad credentials');
+        }
+        const token = JSON.stringify({ email: account.email });//JUST Temporary!!! TODO: make it better
+        return token;
     }
-}
+  
+};

@@ -168,12 +168,31 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2023-03-26T16:42:33.580Z",
-    "modified": "2023-04-01T15:31:48.018Z",
+    "modified": "2023-04-01T15:37:59.207Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "  {\n    \"firstName\": \"\",\n    \"lastName\": \"O'Brien\",\n    \"email\": \"aaronflyingspheres.com\",\n    \"password\": \"Se\",\n    \"favorites\": []\n  }",
+      "raw": "  {\n    \"firstName\": \"\",\n    \"lastName\": \"O'Brien\",\n    \"email\": \"aaron@flyingspheres.com\",\n    \"password\": \"Secret\",\n    \"favorites\": []\n  }",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "b6cbce65-0070-4cc1-a9d8-49c04c7d8e5b",
+    "colId": "history",
+    "containerId": "",
+    "name": "securityToken",
+    "url": "localhost:8080/api/accounts/security/token",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-03-26T16:42:33.580Z",
+    "modified": "2023-04-01T15:56:10.741Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "  {\n    \"id\": \"6428488966a4e05cf3c0763e\",\n    \"firstName\": \"Aaron\",\n    \"lastName\": \"O'Brien\",\n    \"email\": \"aaron@flyingspheres.com\",\n    \"password\": \"supersecret\",\n    \"favorites\": []\n  }",
       "form": []
     },
     "tests": []
