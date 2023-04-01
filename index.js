@@ -4,8 +4,10 @@ import createMoviesRouter from './src/movies/routes';
 import genresRouter from './src/genres/routes';
 import createAccountsRouter from './src/accounts/routes';
 import buildDependencies from './src/config/dependencies';
+import db from './src/config/db';
 
 dotenv.config();
+db.init();
 
 const dependencies = buildDependencies();
 
@@ -16,6 +18,8 @@ let port = process.env.PORT;
 if (port == null || port == '') {
   port = 8080;
 }
+
+console.log("Databae Dialect: ", process.env.DATABASE_DIALECT);
 
 app.use(express.json());
 
