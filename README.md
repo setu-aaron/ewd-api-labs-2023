@@ -25,3 +25,15 @@ HOST=localhost
 DATABASE_DIALECT=in-memory
 TMDB_KEY=YOUR_TBDM_KEY
 ```
+
+## Clean Architecture
+1 aspect everyting is broken up into isolated parts
+a layered aproach:
+* Routers push data to controllers 
+* Controllers pass data to servivces
+* Services create entities and communicate with repositories
+* Services call API's
+* Repositories are push and read data to the database
+
+The dependency chain is one way services don't call routers (for example)
+

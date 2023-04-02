@@ -20,9 +20,9 @@ export default {
         return updatedAccount;
     },
     find: ({accountsRepository}) => {
-        console.log("services.find() called on object: ", accountsRepository)
+        console.log("services.find() called on object: ", accountsRepository);
         let accounts = accountsRepository.find();
-        console.log("accounts: ", accounts)
+        console.log("accounts: ", accounts);
         if (accounts === undefined) {
             return {};
         } else {
@@ -31,5 +31,25 @@ export default {
     },
     findByEmail: (email, {accountsRepository}) => {
         return accountsRepository.getByEmail(email);
+    },
+
+    authenticate: async (email, password, {accountsRepository, authenticator}) => {
+        const account = await accountsRepository.getByEmail(email);
+        const result = await authenticator.compare(password, account.password);
+        if (!result) {
+            throw new Error('Bad credentials');
+        }
+        const token = JSON.stringify({ email: account.email });//JUST Temporary!!! TODO: make it better
+        return token;
+    },
+    getFavourites: async (accountId, { accountsRepository }) => {
+        const account = await accountsRepository.get(accountId);
+        return account.favorites;
+    },
+    addFavourite: async (accountId, movieId, { accountsRepository }) => {
+        const account = await accountsRepository.get(accountId);
+        account.favorites.push(movieId);
+        return await accountsRepository.merge(account);
     }
-}
+  
+};
