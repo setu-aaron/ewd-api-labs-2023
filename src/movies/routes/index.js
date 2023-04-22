@@ -4,6 +4,8 @@ import MoviesController from '../controllers';
 const createMoviesRouter = (dependencies) => {
     // console.log("Create Movies Router")
     // console.log("CMR - Dependencies", dependencies)
+    // console.log("Create Movies Router")
+    // console.log("CMR - Dependencies", dependencies)
     
     const router = express.Router();
 

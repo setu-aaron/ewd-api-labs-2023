@@ -23,7 +23,9 @@ NODE_ENV=development
 PORT=8080
 HOST=localhost
 DATABASE_DIALECT=in-memory
+DATABASE_URL=mongodb://localhost:27017/movies_db
 TMDB_KEY=YOUR_TBDM_KEY
+JWT_SECRET_KEY=<sometext>
 ```
 
 ## Clean Architecture

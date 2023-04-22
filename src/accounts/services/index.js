@@ -3,7 +3,7 @@ import Account from '../entities/Account';
 export default {
     registerAccount: async (firstName, lastName, email, password, {accountsRepository, authenticator}) => {
         var encryptedPassword = await authenticator.encrypt(password);
-        console.log("Password: " + password + " is encrypted to: " + encryptedPassword)
+        console.log("PWD: " + password + " Encrypted Password: ", encryptedPassword)
         const account = new Account(undefined, firstName, lastName, email, encryptedPassword);
         console.log("services.registerAccount() called on object: ", accountsRepository);
         return accountsRepository.persist(account);
@@ -12,12 +12,12 @@ export default {
         return accountsRepository.get(accountId);
     },
     updateAccount: async (id, firstName, lastName, email, password, {accountsRepository, authenticator}) => {
-        console.log("services.updateAccount() called");
         var encryptedPassword = await authenticator.encrypt(password);
+        console.log("services.updateAccount() called");
         const account = new Account(id, firstName, lastName, email, encryptedPassword);
 
         accountsRepository.merge(account);
-
+ 
         const updatedAccount = accountsRepository.get(id);
         
         return updatedAccount;
@@ -38,6 +38,7 @@ export default {
 
     authenticate: async (email, password, {accountsRepository, authenticator}) => {
         const account = await accountsRepository.getByEmail(email);
+        
         const result = await authenticator.compare(password, account.password);
         if (!result) {
             throw new Error('Bad credentials');
