@@ -6,6 +6,7 @@ export default (dependencies) => {
         //Input
         try{
             const validated = await accountSchema['account'].validateAsync(request.body);
+            console.log("Validated: ", validated);
             request.body = validated;
             next();
         } catch(error){
