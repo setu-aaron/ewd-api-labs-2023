@@ -38,6 +38,7 @@ export default {
 
     authenticate: async (email, password, {accountsRepository, authenticator}) => {
         const account = await accountsRepository.getByEmail(email);
+        
         const result = await authenticator.compare(password, account.password);
         if (!result) {
             throw new Error('Bad credentials');
