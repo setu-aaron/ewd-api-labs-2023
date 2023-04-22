@@ -5,8 +5,8 @@ import ValidationController from '../controllers/ValidationController';
 const createRouter = (dependencies) => {
     const router = express.Router();
 
-    console.log("createRouter called")
-    console.log("dependencies: ", dependencies)
+    // console.log("createRouter called")
+    // console.log("dependencies: ", dependencies)
     // load controller with dependencies
     const accountsController = AccountsController(dependencies);
     const validationController = ValidationController(dependencies);

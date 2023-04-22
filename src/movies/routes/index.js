@@ -1,15 +1,14 @@
 import express from 'express';
 import MoviesController from '../controllers';
+import AccountsController from '../../accounts/controllers';
 
 const createMoviesRouter = (dependencies) => {
-    console.log("Create Movies Router")
-    console.log("CMR - Dependencies", dependencies)
-    
     const router = express.Router();
 
     const moviesController = MoviesController(dependencies);
+    const accountsController = AccountsController(dependencies);
 
-    console.log("CMR - Movies Controller", moviesController)
+    router.route('/*').all(accountsController.verify);
 
     router.route('/:id')
         .get(moviesController.getMovie);
