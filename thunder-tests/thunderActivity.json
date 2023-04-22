@@ -27,8 +27,13 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2023-03-26T15:50:57.165Z",
-    "modified": "2023-03-26T16:01:24.375Z",
-    "headers": [],
+    "modified": "2023-04-22T18:01:21.011Z",
+    "headers": [
+      {
+        "name": "authorization",
+        "value": "BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFhcm9uQGZseWluZ3NwaGVyZXMuY29tIiwiaWF0IjoxNjgyMTg1MzMyfQ.MKzvWvP21sqPi6DoybDb-Gm8QVQB8EpAEJ9yE-Wg0x0"
+      }
+    ],
     "params": [],
     "tests": []
   },
@@ -234,7 +239,7 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2023-03-26T16:42:33.580Z",
-    "modified": "2023-04-22T17:12:18.025Z",
+    "modified": "2023-04-22T17:42:10.642Z",
     "headers": [],
     "params": [],
     "body": {

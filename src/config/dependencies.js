@@ -3,6 +3,7 @@ import MongoRepository from '../accounts/repositories/MongoRepository';
 import GenreMongoRepository from '../genres/repositories/MongoRepository';
 import AccountSchema from '../accounts/validators';
 import Authenticator from '../accounts/security/BCryptAuthenticator';
+import TokenManager from '../accounts/security/JWTToken';
 
 const buildDependencies = () => {
   const dependencies = {
@@ -10,6 +11,7 @@ const buildDependencies = () => {
   };
 
   dependencies.accountSchema = AccountSchema;
+  dependencies.tokenManager = new TokenManager();
 
   if (process.env.DATABASE_DIALECT === "in-memory") {
     dependencies.accountsRepository = new AccountsRepositoryInMemory();
