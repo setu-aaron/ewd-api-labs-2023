@@ -3,10 +3,12 @@ import accountService from "../services/index.js";
 export default (dependencies) => {
     const createAccount = async(request, response, next) => {
         //Input
-        const {firstName, lastName, email, password} = request.body;
+        const {firstName, lastName, email} = request.body;
         // Treatment
-        const account = await accountService.registerAccount(firstName, lastName, email, password, dependencies);
+        const account = await accountService.registerAccount(firstName, lastName, email, dependencies);
         // Output
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("sessionId", "1234");
         response.status(201).json(account);
     };
 
@@ -41,8 +43,8 @@ export default (dependencies) => {
 
     const authenticateAccount = async (request, response, next) => {
         try {
-            const { email, password } = request.body;
-            const token = await accountService.authenticate(email, password, dependencies);
+            const { email } = request.body;
+            const token = await accountService.authenticateEmail(email, dependencies);
             response.status(200).json({ token: `BEARER ${token}` });
         } catch (error) {
             response.status(401).json({ message: 'Unauthorized' });

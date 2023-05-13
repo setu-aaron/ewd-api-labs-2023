@@ -15,8 +15,12 @@ const createMoviesRouter = (dependencies) => {
 
     router.route('/')
         .get(moviesController.find);
+    router.route('/page/:pageNumber')
+        .get(moviesController.find);        
     
     router.route('/upcoming')
+        .get(moviesController.upcoming);
+    router.route('/upcoming/page/:pageNumber')
         .get(moviesController.upcoming);
     
     return router;
