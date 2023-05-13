@@ -2,12 +2,24 @@ import movieService from '../services';
 
 export default(dependencies) => {
     const getMovie = async(request, response, next) => {
-        console.log("Calling movies/controllers getMovie")
+        console.log("Calling movies/controllers getMovie");
         //Input 
         const movieId = request.params.id;
 
         //Treatment
         const movie = await movieService.getMovie(movieId);
+
+        //Output
+        response.status(200).json(movie);
+    };
+
+    const getMovieImages = async(request, response, next) => {
+        console.log("Calling movieImages/controllers getMovieImages");
+        //Input 
+        const movieId = request.params.id;
+
+        //Treatment
+        const movie = await movieService.getMovieImages(movieId);
 
         //Output
         response.status(200).json(movie);
@@ -33,7 +45,7 @@ export default(dependencies) => {
     };
 
     const upcoming = async (request, response, next) => {
-        console.log("Calling movies/controllers find")
+        console.log("Calling movies/controllers find");
         //Input 
         const query = request.query;
 
@@ -44,9 +56,35 @@ export default(dependencies) => {
         response.status(200).json(movies);
     };
 
+    const getMovieReviews = async(request, response, next) => {
+        console.log("Calling movieImages/controllers getMovieImages");
+        //Input 
+        const movieId = request.params.id;
+
+        //Treatment
+        const movie = await movieService.getMovieReviews(movieId);
+
+        //Output
+        response.status(200).json(movie);
+    };
+
+    const getMovieCredits = async(request, response, next) => {
+        console.log("Calling movieImages/controllers getMovieImages");
+        //Input 
+        const movieId = request.params.id;
+
+        //Treatment
+        const movie = await movieService.getMovieCredits(movieId);
+
+        //Output
+        response.status(200).json(movie);
+    };
     return {
         getMovie,
+        getMovieImages,
         find,
-        upcoming
+        upcoming,
+        getMovieReviews,
+        getMovieCredits
     };
 };

@@ -1,3 +1,4 @@
+import { json } from "express";
 import accountService from "../services/index.js";
 
 export default (dependencies) => {
@@ -22,7 +23,7 @@ export default (dependencies) => {
     };
 
     const updateAccount = async(request, response, next) => {
-        console.log("Account Service", accountService)
+        console.log("Account Service", accountService);
         //Input
         const {id, firstName, lastName, email, password} = request.body;
 
@@ -33,8 +34,8 @@ export default (dependencies) => {
     };
 
     const listAccounts = async(request, response, next) => {
-        console.log("accounts/controlers.listAccounts called")
-        console.log("\tdependencies: ", dependencies)
+        console.log("accounts/controlers.listAccounts called");
+        console.log("\tdependencies: ", dependencies);
         // Treatment
         const accounts = await accountService.find(dependencies);
         // Output
