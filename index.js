@@ -17,10 +17,10 @@ const dependencies = buildDependencies();
 const app = express();
 const cors = require('cors');
 
-// app.use(cors({
-//   origin: '*',
-//   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-// }));
+app.use(cors({
+  origin: '*',
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+}));
 
 let port = process.env.PORT;
 

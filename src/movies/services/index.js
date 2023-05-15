@@ -23,9 +23,9 @@ export default {
     },
 
     upcoming: async (query) => {
-        console.log("MoviesService - calling upcoming via axios")
+        console.log("MoviesService - calling upcoming via axios page ", query)
 
-        const response = await axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.TMDB_KEY}&language=en-US&include_adult=false&include_video=false&${query}`);
+        const response = await axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=${query}`);
         
         return response.data;
     },

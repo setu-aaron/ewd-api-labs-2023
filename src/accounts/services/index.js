@@ -49,9 +49,15 @@ export default {
     },
     authenticateEmail: async (email, {accountsRepository, authenticator, tokenManager}) => {
         const account = await accountsRepository.getByEmail(email);
-        
-        const token = tokenManager.generate({email:account.email});
-        return token;
+        console.log("account: ", account);
+        try {
+            const token = tokenManager.generate({email:account.email});
+            console.log("token: ", token);
+            return token
+        } catch (error) {
+            console.log("error: ", error);
+            throw new Error('Bad credentials');
+        }
     },
     getFavourites: async (accountId, { accountsRepository }) => {
         const account = await accountsRepository.get(accountId);

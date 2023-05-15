@@ -8,8 +8,6 @@ export default (dependencies) => {
         // Treatment
         const account = await accountService.registerAccount(firstName, lastName, email, dependencies);
         // Output
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        response.setHeader("sessionId", "1234");
         response.status(201).json(account);
     };
 
@@ -76,7 +74,7 @@ export default (dependencies) => {
         try {
             //Input
             const authHeader = request.headers.authorization;
-
+            // /console.log("authHeader: ", authHeader);
             //Treatment 
             const accessToken = authHeader.split(" ")[1];
             const user = await accountService.verifyToken(accessToken, dependencies);

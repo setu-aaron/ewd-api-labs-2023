@@ -45,10 +45,10 @@ export default(dependencies) => {
     };
 
     const upcoming = async (request, response, next) => {
-        console.log("Calling movies/controllers find");
+        console.log("Calling upcoming movies/controllers find");
         //Input 
-        const query = request.query;
-
+        const query = request.params.pageNumber;
+        console.log("query is ", query)
         //Treatment
         const movies = await movieService.upcoming(query, dependencies);
 

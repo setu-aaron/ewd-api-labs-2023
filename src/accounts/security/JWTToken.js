@@ -3,6 +3,7 @@ import TokenManager from "./TokenManager";
 
 export default class extends TokenManager {
     generate(payload) {
+        console.log("Creating token based on: ", payload)
         return jwt.sign(payload, process.env.JWT_SECRET_KEY);        
     }
 

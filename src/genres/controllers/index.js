@@ -8,9 +8,9 @@ export default(dependencies) => {
 
         //Treatment
         const genres = await genreService.find(dependencies);
-
+        let genresContract = {genres: genres};
         //Outptut
-        response.status(200).json(genres);
+        response.status(200).json(genresContract);
     };
 
     const loadGenres = async(request, response, next) => {
