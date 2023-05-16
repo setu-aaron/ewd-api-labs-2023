@@ -17,7 +17,7 @@ const dependencies = buildDependencies();
 
 const app = express();
 const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('./swagger.json');
+const swaggerDocument = require('./swagger-output.json');
 const cors = require('cors');
 
 app.use(cors({
