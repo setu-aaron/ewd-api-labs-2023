@@ -39,3 +39,10 @@ a layered aproach:
 
 The dependency chain is one way services don't call routers (for example)
 
+# Running Locally
+## Mongo
+```
+docker pull mongo
+docker run -d -p 27017:27017 --name test-mongo mongo:latest
+
+```

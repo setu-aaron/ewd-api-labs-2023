@@ -15,6 +15,7 @@ const createRouter = (dependencies) => {
     //define routes
     router.route('/')
         .post(validationController.validateAccount, accountsController.createAccount);
+        //.post(accountsController.createAccount);
 
     router.route('/')
         .get(accountsController.listAccounts);

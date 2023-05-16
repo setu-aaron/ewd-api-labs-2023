@@ -1,12 +1,13 @@
 import Account from '../entities/Account';
 
 export default {
-    registerAccount: async (firstName, lastName, email, password, {accountsRepository, authenticator}) => {
-        var encryptedPassword = await authenticator.encrypt(password);
-        console.log("PWD: " + password + " Encrypted Password: ", encryptedPassword)
-        const account = new Account(undefined, firstName, lastName, email, encryptedPassword);
+    registerAccount: async (firstName, lastName, email, {accountsRepository, authenticator}) => {
+        // var encryptedPassword = await authenticator.encrypt(password);
+        // console.log("PWD: " + password + " Encrypted Password: ", encryptedPassword)
+        //const account = new Account(undefined, firstName, lastName, email, encryptedPassword);
+        const account = new Account(undefined, firstName, lastName, email);
         console.log("services.registerAccount() called on object: ", accountsRepository);
-        return accountsRepository.persist(account);
+        return accountsRepository.persist(account); 
     },
     getAccount: (accountId, {accountsRepository}) => {
         return accountsRepository.get(accountId);
@@ -45,6 +46,18 @@ export default {
         }
         const token = tokenManager.generate({email:account.email});
         return token;
+    },
+    authenticateEmail: async (email, {accountsRepository, authenticator, tokenManager}) => {
+        const account = await accountsRepository.getByEmail(email);
+        console.log("account: ", account);
+        try {
+            const token = tokenManager.generate({email:account.email});
+            console.log("token: ", token);
+            return token
+        } catch (error) {
+            console.log("error: ", error);
+            throw new Error('Bad credentials');
+        }
     },
     getFavourites: async (accountId, { accountsRepository }) => {
         const account = await accountsRepository.get(accountId);

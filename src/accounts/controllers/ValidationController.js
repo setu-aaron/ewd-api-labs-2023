@@ -5,6 +5,8 @@ export default (dependencies) => {
     const validateAccount = async(request, response, next) => {
         //Input
         try{
+            console.log("ValidationController.validateAccount called");
+            console.log("request.body: ", request.body);
             const validated = await accountSchema['account'].validateAsync(request.body);
             console.log("Validated: ", validated);
             request.body = validated;

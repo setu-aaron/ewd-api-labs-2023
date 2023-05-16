@@ -16,11 +16,17 @@ export default class extends Repository {
     }
 
     async persist(accountEntity) {
-        const {firstName, lastName, email, password, favorites} = accountEntity;
-        const result = new this.model({firstName, lastName, email, password, favorites});
-        await result.save();
-        accountEntity.id = result.id;
-        return accountEntity;
+        let tAccount =  await this.getByEmail(accountEntity.email);
+        if (tAccount === null) {
+            const {firstName, lastName, email, password, favorites} = accountEntity;
+            const result = new this.model({firstName, lastName, email, password, favorites});
+            await result.save();
+            accountEntity.id = result.id;
+            return accountEntity;
+        } else {
+            console.log("tAccount: ", tAccount);
+            return tAccount;
+        }
     }
 
     async merge(accountEntity) {
@@ -46,6 +52,9 @@ export default class extends Repository {
 
     async getByEmail(userEmail) {
         const result = await this.model.findOne({email: userEmail});
+        if (result === null) {
+            return null;
+        }
         return new Account(result.id, result.firstName, result.lastName, result.email, result.password, result.favorites);
     }
 

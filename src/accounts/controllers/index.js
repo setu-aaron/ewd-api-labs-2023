@@ -1,11 +1,12 @@
+import { json } from "express";
 import accountService from "../services/index.js";
 
 export default (dependencies) => {
     const createAccount = async(request, response, next) => {
         //Input
-        const {firstName, lastName, email, password} = request.body;
+        const {firstName, lastName, email} = request.body;
         // Treatment
-        const account = await accountService.registerAccount(firstName, lastName, email, password, dependencies);
+        const account = await accountService.registerAccount(firstName, lastName, email, dependencies);
         // Output
         response.status(201).json(account);
     };
@@ -20,7 +21,7 @@ export default (dependencies) => {
     };
 
     const updateAccount = async(request, response, next) => {
-        console.log("Account Service", accountService)
+        console.log("Account Service", accountService);
         //Input
         const {id, firstName, lastName, email, password} = request.body;
 
@@ -31,8 +32,8 @@ export default (dependencies) => {
     };
 
     const listAccounts = async(request, response, next) => {
-        console.log("accounts/controlers.listAccounts called")
-        console.log("\tdependencies: ", dependencies)
+        console.log("accounts/controlers.listAccounts called");
+        console.log("\tdependencies: ", dependencies);
         // Treatment
         const accounts = await accountService.find(dependencies);
         // Output
@@ -41,8 +42,8 @@ export default (dependencies) => {
 
     const authenticateAccount = async (request, response, next) => {
         try {
-            const { email, password } = request.body;
-            const token = await accountService.authenticate(email, password, dependencies);
+            const { email } = request.body;
+            const token = await accountService.authenticateEmail(email, dependencies);
             response.status(200).json({ token: `BEARER ${token}` });
         } catch (error) {
             response.status(401).json({ message: 'Unauthorized' });
@@ -73,7 +74,7 @@ export default (dependencies) => {
         try {
             //Input
             const authHeader = request.headers.authorization;
-
+            // /console.log("authHeader: ", authHeader);
             //Treatment 
             const accessToken = authHeader.split(" ")[1];
             const user = await accountService.verifyToken(accessToken, dependencies);
