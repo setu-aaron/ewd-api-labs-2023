@@ -5,9 +5,7 @@ Github URL: https://github.com/setu-aaron/ewd-api-labs-2023
 Youtube Video URL: https://youtu.be/F9Z3G3_jYdQ  
 
 ## Features.
-
-[A bullet-point list of the ADDITIONAL features/endpoints you have implemented in the API **THAT WERE NOT IN THE LABS** ]. 
-
+Features/Endpoints implemented not in the lab:
  + Feature  1 - /api/movies/page/:pageNumber - paginated view of popular movies based on page number requested  
  + Feature  2 - /api/movies/review/:movieId - reviews of a specific movie using movie id  
  + Feature  3 - /api/movies/credits/:movieId - credits of a specific movie using movie id  
@@ -224,10 +222,41 @@ Below is a good example of how the react app talks to the the api services.
 
 ## Extra features
 
-. . Briefly explain any non-standard features, functional or non-functional, developed for the app.  
+I implemented the open api or swagger specificaiton with this project.  It was amazingly simple.  I used the following libraries/commands:
+```
+npm install swagger-ui-express
+npm run swagger-autogen
+```
+I added a (swagger.js)[./swagger.js] script and then modified my ``package.json`` file to be able to allow me to generate the swagger file from the command line using this command:
 
-If you deployed to a hosting service/cloud, you should specify here. 
+```
+npm run swagger-autogen
+```
+Modificaitons to package.json:
+```
+  "scripts": {
+    "swagger-autogen": "node ./swagger.js", 
+    "start": "nodemon --exec babel-node index.js",
+    "test": "newman run ./tests/movies_collection.json -e ./tests/movies_environment.json --reporters htmlextra,cli --reporter-htmlextra-export ./tests/reports/report.html"
+  },
+```
+Here is a screen shot of OpenAPI running:
+<img src='./images/openaapi.png'/>
+
+And a screen shot of one of the services:
+<img src='./images/workingApi.png'/>
 
 ## Independent learning.
 
-. . State the non-standard aspects of React/Express/Node (or other related technologies) that you researched and applied in this assignment . .  
+Coming from a work history of software development primarily working with Java based servers this was completely unfamiliar to me.  There were times where the configuration of the project seemed overly complex but as I implemented new endpoints I found the structure to be quite easy to follow and the clean architecture as discussed in class to be very good.  Clean Architecture is something that has recently come up in conversation at my work so having this source of knowledge coupled with what I've learnd on my own has really helped solidify those concepts.
+
+Also working with express was new for me - in the world of Java where whole indusries of best ways to manage servers have been created over the years to see all of that work basically being replace by:
+~~~Javascript
+app.listen(port, () => {
+  console.info(`Server running at ${port}`);
+}); 
+~~~
+Is amazing, and makes me question if java development started out by embracing complexity - and these new langugages are able to take advantage of those lessons and make server startup and configuration simple first and then add complexity when it's needed.
+
+
+

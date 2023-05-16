@@ -9,12 +9,15 @@ import buildDependencies from './src/config/dependencies';
 import db from './src/config/db';
 import errorHandler from './src/utils/ErrorHandler';
 
+
 dotenv.config();
 db.init();
 
 const dependencies = buildDependencies();
 
 const app = express();
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger-output.json');
 const cors = require('cors');
 
 app.use(cors({
@@ -33,6 +36,7 @@ console.log("Databae Dialect: ", process.env.DATABASE_DIALECT);
 app.use(express.json());
 app.use(errorHandler);
 
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/api/movies', createMoviesRouter(dependencies));
 app.use('/api/shows', createShowsRouter(dependencies));
 app.use('/api/genres', genresRouter(dependencies));
