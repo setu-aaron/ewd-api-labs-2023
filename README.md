@@ -2,7 +2,7 @@
 
 Name: Aaron O'Brien
 Github URL: https://github.com/setu-aaron/ewd-api-labs-2023  
-Youtube Video URL: https://youtu.be/F9Z3G3_jYdQ  
+Youtube Video URL: https://youtu.be/wcrTd-zCACg  
 
 ## Features.
 Features/Endpoints implemented not in the lab:
@@ -184,7 +184,7 @@ The ``tokenManager`` leverages the ``jsonwebtoken`` library to create and verify
 Testing was primiarily done via (ThunderClient)[https://www.thunderclient.com/] - this is a plugin in VSCode that works very well.  One feature that I like is that it keeps your tests in your code base and can be run very simply.  This worked very well for me until the lab where we used Postman and exported the tests and put leveraged Newman to run the tests.  I think there is value in using ThunderClient but if you have a separate person or team tesing I would say the Postman/Newman option is probably better.  The below image is screen shot of my newman test report. 
 
 Give an example of any automated testing results or link to a reports. 
-<img src='./images/testResults.png' width="600"/>
+<img src='./images/testresults.png' width="600"/>
 
 Here is a screen shot of the Thunder Client running in VS Code:
 Give an example of any automated testing results or link to a reports. 
