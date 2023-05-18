@@ -16,6 +16,14 @@
         "description": "",
         "parameters": [
           {
+            "in":"header",
+            "name":"Authorization",
+            "type":"string",
+            "required":true,
+            "description":"Bearer {token}"
+            
+          },
+          {
             "name": "id",
             "in": "path",
             "required": true,
@@ -30,6 +38,14 @@
         "description": "",
         "parameters": [
           {
+            "in":"header",
+            "name":"Authorization",
+            "type":"string",
+            "required":true,
+            "description":"Bearer {token}"
+            
+          },
+          {
             "name": "id",
             "in": "path",
             "required": true,
@@ -42,7 +58,16 @@
     "/api/movies/": {
       "get": {
         "description": "",
-        "parameters": [],
+        "parameters": [
+          {
+            "in":"header",
+            "name":"Authorization",
+            "type":"string",
+            "required":true,
+            "description":"Bearer {token}"
+
+          }
+        ],
         "responses": {}
       }
     },
@@ -50,6 +75,15 @@
       "get": {
         "description": "",
         "parameters": [
+
+          {
+            "in":"header",
+            "name":"Authorization",
+            "type":"string",
+            "required":true,
+            "description":"Bearer {token}"
+            
+          },
           {
             "name": "pageNumber",
             "in": "path",
@@ -63,7 +97,16 @@
     "/api/movies/upcoming": {
       "get": {
         "description": "",
-        "parameters": [],
+        "parameters": [
+          {
+            "in":"header",
+            "name":"Authorization",
+            "type":"string",
+            "required":true,
+            "description":"Bearer {token}"
+            
+          }
+        ],
         "responses": {}
       }
     },
@@ -71,6 +114,14 @@
       "get": {
         "description": "",
         "parameters": [
+          {
+            "in":"header",
+            "name":"Authorization",
+            "type":"string",
+            "required":true,
+            "description":"Bearer {token}"
+            
+          },
           {
             "name": "pageNumber",
             "in": "path",
@@ -86,6 +137,14 @@
         "description": "",
         "parameters": [
           {
+            "in":"header",
+            "name":"Authorization",
+            "type":"string",
+            "required":true,
+            "description":"Bearer {token}"
+            
+          },
+          {
             "name": "id",
             "in": "path",
             "required": true,
@@ -99,6 +158,14 @@
       "get": {
         "description": "",
         "parameters": [
+          {
+            "in":"header",
+            "name":"Authorization",
+            "type":"string",
+            "required":true,
+            "description":"Bearer {token}"
+            
+          },
           {
             "name": "id",
             "in": "path",
@@ -114,6 +181,14 @@
         "description": "",
         "parameters": [
           {
+            "in":"header",
+            "name":"Authorization",
+            "type":"string",
+            "required":true,
+            "description":"Bearer {token}"
+            
+          },
+          {
             "name": "id",
             "in": "path",
             "required": true,
@@ -127,6 +202,14 @@
       "get": {
         "description": "",
         "parameters": [
+          {
+            "in":"header",
+            "name":"Authorization",
+            "type":"string",
+            "required":true,
+            "description":"Bearer {token}"
+            
+          },
           {
             "name": "id",
             "in": "path",
@@ -142,6 +225,14 @@
         "description": "",
         "parameters": [
           {
+            "in":"header",
+            "name":"Authorization",
+            "type":"string",
+            "required":true,
+            "description":"Bearer {token}"
+            
+          },
+          {
             "name": "id",
             "in": "path",
             "required": true,
@@ -155,6 +246,14 @@
       "get": {
         "description": "",
         "parameters": [
+          {
+            "in":"header",
+            "name":"Authorization",
+            "type":"string",
+            "required":true,
+            "description":"Bearer {token}"
+            
+          },
           {
             "name": "id",
             "in": "path",
@@ -175,6 +274,14 @@
       "get": {
         "description": "",
         "parameters": [
+          {
+            "in":"header",
+            "name":"Authorization",
+            "type":"string",
+            "required":true,
+            "description":"Bearer {token}"
+            
+          },
           {
             "name": "id",
             "in": "path",
@@ -200,7 +307,16 @@
     "/api/shows/": {
       "get": {
         "description": "",
-        "parameters": [],
+        "parameters": [
+          {
+            "in":"header",
+            "name":"Authorization",
+            "type":"string",
+            "required":true,
+            "description":"Bearer {token}"
+            
+          }
+        ],
         "responses": {}
       }
     },
@@ -208,6 +324,14 @@
       "get": {
         "description": "",
         "parameters": [
+          {
+            "in":"header",
+            "name":"Authorization",
+            "type":"string",
+            "required":true,
+            "description":"Bearer {token}"
+            
+          },
           {
             "name": "pageNumber",
             "in": "path",
@@ -221,7 +345,16 @@
     "/api/genres/": {
       "get": {
         "description": "",
-        "parameters": [],
+        "parameters": [
+          {
+            "in":"header",
+            "name":"Authorization",
+            "type":"string",
+            "required":true,
+            "description":"Bearer {token}"
+            
+          }
+        ],
         "responses": {}
       }
     },
@@ -235,7 +368,29 @@
     "/api/accounts/": {
       "post": {
         "description": "",
-        "parameters": [],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "user email",
+            "schema": {
+              "type": "object",
+              "required": [
+                "email"
+              ],
+              "properties":{
+                "firstName": {
+                  "type":"string"
+                },
+                "lastName": {
+                  "type":"string"
+                },
+                "email":{
+                  "type":"string"
+                }
+              }
+            }
+          }
+        ],
         "responses": {}
       },
       "get": {
@@ -273,7 +428,23 @@
     "/api/accounts/security/token": {
       "post": {
         "description": "",
-        "parameters": [],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "user email",
+            "schema": {
+              "type": "object",
+              "required": [
+                "email"
+              ],
+              "properties":{
+                "email":{
+                  "type":"string"
+                }
+              }
+            }
+          }
+        ],
         "responses": {}
       }
     },
@@ -308,6 +479,14 @@
         "description": "",
         "parameters": [
           {
+            "in":"header",
+            "name":"Authorization",
+            "type":"string",
+            "required":true,
+            "description":"Bearer {token}"
+            
+          },
+          {
             "name": "id",
             "in": "path",
             "required": true,
@@ -321,6 +500,14 @@
       "get": {
         "description": "",
         "parameters": [
+          {
+            "in":"header",
+            "name":"Authorization",
+            "type":"string",
+            "required":true,
+            "description":"Bearer {token}"
+            
+          },
           {
             "name": "text",
             "in": "path",
