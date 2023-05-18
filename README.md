@@ -73,8 +73,6 @@ JWT_SECRET_KEY=<sometext>
 
 
 ## API Design
-[Give an overview of your web API design, perhaps similar to the following: ]
-
 |  |  GET | POST | PUT | DELETE
 | -- | -- | -- | -- | -- 
 | /api/accounts | retrieve all accounts | save account | N/A | N/A
